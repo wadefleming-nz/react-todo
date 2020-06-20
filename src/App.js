@@ -4,9 +4,9 @@ import TodoList from './TodoList';
 
 function App() {
   const items = [
-    { description: 'Task 1' },
-    { description: 'Task 2' },
-    { description: 'Task 3' },
+    { id: 1, description: 'Task 1' },
+    { id: 2, description: 'Task 2' },
+    { id: 3, description: 'Task 3' },
   ];
 
   return (
