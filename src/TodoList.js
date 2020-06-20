@@ -9,6 +9,7 @@ function TodoList() {
   ];
 
   const [items, setItems] = useState(initialItems);
+  const [newItemDescription, setNewItemDescription] = useState('');
 
   function addClicked() {
     setItems((items) => [
@@ -22,8 +23,17 @@ function TodoList() {
     return maxId ? maxId + 1 : 1;
   }
 
+  function descriptionChanged(e) {
+    setNewItemDescription(e.target.value);
+  }
+
   return (
     <div>
+      <input
+        type="text"
+        value={newItemDescription}
+        onChange={descriptionChanged}
+      ></input>
       <button onClick={addClicked}>Add</button>
       <ul>
         {items.map((item) => (
