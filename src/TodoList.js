@@ -5,7 +5,7 @@ function TodoList(props) {
   return (
     <ul>
       {props.items.map((item) => (
-        <TodoItem description={item.description} />
+        <TodoItem key={item.description} description={item.description} />
       ))}
     </ul>
   );
