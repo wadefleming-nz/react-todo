@@ -8,35 +8,42 @@ function TodoList() {
     { id: 3, description: 'Task 3' },
   ];
 
-  const [items, setItems] = useState(initialItems);
-  const [newItemDescription, setNewItemDescription] = useState('');
+  const [state, setState] = useState({
+    items: initialItems,
+    newDescription: '',
+  });
 
   function addClicked() {
-    setItems((items) => [
-      ...items,
-      { id: getNextId(), description: 'Task ' + getNextId() },
-    ]);
+    setState((state) => ({
+      ...state,
+      items: [
+        ...state.items,
+        { id: getNextId(), description: state.newDescription },
+      ],
+      newDescription: '',
+    }));
   }
 
   function getNextId() {
-    const maxId = Math.max(...items.map((item) => item.id));
+    const maxId = Math.max(...state.items.map((item) => item.id));
     return maxId ? maxId + 1 : 1;
   }
 
   function descriptionChanged(e) {
-    setNewItemDescription(e.target.value);
+    const newDescription = e.target.value;
+    setState((state) => ({ ...state, newDescription }));
   }
 
   return (
     <div>
       <input
         type="text"
-        value={newItemDescription}
+        value={state.newDescription}
         onChange={descriptionChanged}
       ></input>
       <button onClick={addClicked}>Add</button>
       <ul>
-        {items.map((item) => (
+        {state.items.map((item) => (
           <TodoItem key={item.id} description={item.description} />
         ))}
       </ul>
