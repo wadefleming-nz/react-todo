@@ -24,12 +24,12 @@ function TodoList() {
 
   return (
     <div>
+      <button onClick={addClicked}>Add</button>
       <ul>
         {items.map((item) => (
           <TodoItem key={item.id} description={item.description} />
         ))}
       </ul>
-      <button onClick={addClicked}>Add</button>
     </div>
   );
 }
