@@ -1,12 +1,12 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-function TodoList() {
+function TodoList(props) {
   return (
     <ul>
-      <TodoItem description="Task 1" />
-      <TodoItem description="Task 2" />
-      <TodoItem description="Task 3" />
+      {props.items.map((item) => (
+        <TodoItem description={item.description} />
+      ))}
     </ul>
   );
 }
