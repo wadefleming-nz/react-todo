@@ -8,12 +8,19 @@ function TodoList() {
     { id: 3, description: 'Task 3' },
   ];
 
+  function addClicked() {
+    console.log('clicked');
+  }
+
   return (
-    <ul>
-      {items.map((item) => (
-        <TodoItem key={item.id} description={item.description} />
-      ))}
-    </ul>
+    <div>
+      <ul>
+        {items.map((item) => (
+          <TodoItem key={item.id} description={item.description} />
+        ))}
+      </ul>
+      <button onClick={addClicked}>Add</button>
+    </div>
   );
 }
 
