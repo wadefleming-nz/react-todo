@@ -9,11 +9,7 @@ function App() {
     { id: 3, description: 'Task 3' },
   ];
 
-  return (
-    <body>
-      <TodoList items={items} />
-    </body>
-  );
+  return <TodoList items={items} />;
 }
 
 export default App;
