@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TodoItem from './TodoItem';
 
 function TodoList() {
-  const items = [
+  const initialItems = [
     { id: 1, description: 'Task 1' },
     { id: 2, description: 'Task 2' },
     { id: 3, description: 'Task 3' },
   ];
 
+  const [items, setItems] = useState(initialItems);
+
   function addClicked() {
-    console.log('clicked');
+    setItems((items) => [...items, { id: 4, description: 'Task 4' }]);
   }
 
   return (
