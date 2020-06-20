@@ -11,7 +11,15 @@ function TodoList() {
   const [items, setItems] = useState(initialItems);
 
   function addClicked() {
-    setItems((items) => [...items, { id: 4, description: 'Task 4' }]);
+    setItems((items) => [
+      ...items,
+      { id: getNextId(), description: 'Task ' + getNextId() },
+    ]);
+  }
+
+  function getNextId() {
+    const maxId = Math.max(...items.map((item) => item.id));
+    return maxId ? maxId + 1 : 1;
   }
 
   return (
