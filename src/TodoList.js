@@ -4,9 +4,9 @@ import TodoItem from './TodoItem';
 function TodoList() {
   return (
     <ul>
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
+      <TodoItem description="Task 1" />
+      <TodoItem description="Task 2" />
+      <TodoItem description="Task 3" />
     </ul>
   );
 }
