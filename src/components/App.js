@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import NewTodo from './NewTodo';
 import TodoList from './TodoList';
+import ClearAll from './ClearAll';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -15,9 +16,14 @@ function App() {
     return maxId ? maxId + 1 : 1;
   }
 
+  function clearAllClicked() {
+    setItems([]);
+  }
+
   return (
     <div>
       <NewTodo onTodoEntered={todoEntered} />
+      <ClearAll onClearAllClicked={clearAllClicked} />
       <TodoList items={items} />
     </div>
   );
